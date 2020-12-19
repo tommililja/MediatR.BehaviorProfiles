@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Authors>Tommi Lilja</Authors>
+    <Description>Behavior profiles for MediatR and Microsoft.Extensions.DependencyInjection.</Description>
+    <Copyright>Tommi Lilja</Copyright>
+    <PackageProjectUrl>https://github.com/tommililja/MediatR.BehaviorProfiles</PackageProjectUrl>
+    <RepositoryUrl>git://github.com/tommililja/mediatr.behaviorprofiles</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <PackageTags>mediatr;behaviors;dependencyinjection;profiles</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="9.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Internal\" />
+  </ItemGroup>
+
+</Project>
