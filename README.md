@@ -35,7 +35,9 @@ using MediatR.BehaviorProfiles.Extensions;
 
 public void ConfigureServices(IServiceCollection services)
 {
-    services.AddMediatR().AddBehaviorProfile<MyBehaviorProfile>();     
+    services
+        .AddMediatR()
+        .AddBehaviorProfile<MyBehaviorProfile>();     
 }
 
 ```
