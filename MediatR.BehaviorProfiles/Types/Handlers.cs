@@ -1,11 +1,10 @@
-﻿using MediatR.BehaviorProfiles.Lists.Unique;
-using MediatR.BehaviorProfiles.Types;
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
-namespace MediatR.BehaviorProfiles.Lists
+namespace MediatR.BehaviorProfiles.Types
 {
-    internal class Handlers : UniqueList<Handler>, IHandlers
+    internal class Handlers : HashSet<Handler>, IHandlers
     {
         public void Include<THandler>()
         {
@@ -19,12 +18,12 @@ namespace MediatR.BehaviorProfiles.Lists
             Add(handler);
         }
 
-        public void Include(Type[] types)
+        public void Include(IEnumerable<Type> types)
         {
             var handlers = types
                 .Select(type => new Handler(type));
 
-            AddRange(handlers);
+            UnionWith(handlers);
         }
     }
 }

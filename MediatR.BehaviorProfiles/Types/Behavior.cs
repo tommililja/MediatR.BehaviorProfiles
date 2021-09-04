@@ -4,11 +4,12 @@ namespace MediatR.BehaviorProfiles.Types
 {
     internal class Behavior
     {
-        private readonly Type interfaceType = typeof(IPipelineBehavior<,>);
+        private readonly Type pipelineBehaviorInterface = 
+            typeof(IPipelineBehavior<,>);
 
         public Behavior(Type type)
         {
-            InterfaceType = interfaceType;
+            InterfaceType = pipelineBehaviorInterface;
             ImplementationType = type;
         }
 
@@ -16,7 +17,7 @@ namespace MediatR.BehaviorProfiles.Types
         {
             var arguments = handler.Arguments;
 
-            InterfaceType = interfaceType
+            InterfaceType = pipelineBehaviorInterface
                 .MakeGenericType(arguments);
 
             ImplementationType = type

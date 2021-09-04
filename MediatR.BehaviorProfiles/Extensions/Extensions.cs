@@ -11,7 +11,9 @@ namespace MediatR.BehaviorProfiles.Extensions
         /// <returns>IServiceCollection</returns>
         public static IServiceCollection AddBehaviorProfile<T>(this IServiceCollection services) where T : BehaviorProfile
         {
-            return Activator.CreateInstance<T>().Configure(services);
+            return Activator
+                .CreateInstance<T>()
+                .Configure(services);
         }
     }
 }

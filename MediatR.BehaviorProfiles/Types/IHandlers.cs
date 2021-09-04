@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 
-namespace MediatR.BehaviorProfiles.Lists
+namespace MediatR.BehaviorProfiles.Types
 {
     public interface IHandlers
     {
@@ -20,6 +21,6 @@ namespace MediatR.BehaviorProfiles.Lists
         /// Include handlers for registration.
         /// </summary>
         /// <param name="types">The types of the handlers to include.</param>
-        void Include(Type[] types);
+        void Include(IEnumerable<Type> types);
     }
 }

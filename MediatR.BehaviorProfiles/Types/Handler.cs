@@ -1,31 +1,27 @@
-﻿using MediatR.BehaviorProfiles.Lists.Unique;
-using System;
+﻿using System;
 
 namespace MediatR.BehaviorProfiles.Types
 {
-    internal class Handler : IEquatable<Handler>, IUniqueListItem
+    internal class Handler : IEquatable<Handler>
     {
+        private readonly Type type;
+        
         public Handler(Type handlerType)
         {
-            var interfaceName = typeof(IRequestHandler<,>)
-                .Name;
+            var requestHandlerInterface = typeof(IRequestHandler<,>);
 
             Arguments = handlerType
-                .GetInterface(interfaceName)
+                .GetInterface(requestHandlerInterface.Name)
                 .GetGenericArguments();
 
-            Type = handlerType;
+            type = handlerType;
         }
 
         public bool Equals(Handler handler)
         {
-            return handler?.Type == Type;
+            return handler?.type == type;
         }
 
-        public Type Type { get; }
-
         public Type[] Arguments { get; }
-
-        public string Name => Type.FullName;
     }
 }
