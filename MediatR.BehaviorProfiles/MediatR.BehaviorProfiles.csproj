@@ -9,11 +9,13 @@
     <RepositoryUrl>git://github.com/tommililja/mediatr.behaviorprofiles</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageTags>mediatr;behaviors;dependencyinjection;profiles</PackageTags>
+    <LangVersion>10</LangVersion>
+    <Nullable>disable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MediatR" Version="9.0.0" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" />
+    <PackageReference Include="MediatR" Version="10.0.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
   </ItemGroup>
 
 </Project>
