@@ -1,27 +1,24 @@
-﻿using System;
+﻿namespace MediatR.BehaviorProfiles.Types;
 
-namespace MediatR.BehaviorProfiles.Types
+internal class Handler : IEquatable<Handler>
 {
-    internal class Handler : IEquatable<Handler>
-    {
-        private readonly Type type;
+    private readonly Type type;
         
-        public Handler(Type handlerType)
-        {
-            var requestHandlerInterface = typeof(IRequestHandler<,>);
+    public Handler(Type handlerType)
+    {
+        var requestHandlerInterface = typeof(IRequestHandler<,>);
 
-            Arguments = handlerType
-                .GetInterface(requestHandlerInterface.Name)
-                .GetGenericArguments();
+        Arguments = handlerType
+            .GetInterface(requestHandlerInterface.Name)
+            .GetGenericArguments();
 
-            type = handlerType;
-        }
-
-        public bool Equals(Handler handler)
-        {
-            return handler?.type == type;
-        }
-
-        public Type[] Arguments { get; }
+        type = handlerType;
     }
+
+    public bool Equals(Handler handler)
+    {
+        return handler?.type == type;
+    }
+
+    public Type[] Arguments { get; }
 }
